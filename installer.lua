@@ -1,6 +1,6 @@
 -- Installer script
 
-local base = "https://github.com/ScaryWizard69/CC-Tweaked-OS/blob/main/installer.lua"
+local base = "https://raw.githubusercontent.com/ScaryWizard69/CC-Tweaked-OS/refs/heads/main/installer.lua"
 
 local files = {
   { url = "startup.lua", dest = "startup.lua" },
