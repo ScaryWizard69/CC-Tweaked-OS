@@ -5,7 +5,7 @@ local base = "https://raw.githubusercontent.com/ScaryWizard69/CC-Tweaked-OS/main
 
 local files = {
   { url = "startup.lua", dest = "startup.lua" },
-  { url = "OS/.Menu.lua", dest = "OS/Menu.lua" },
+  { url = "OS/Menu.lua", dest = "OS/Menu.lua" },
 }
 
 for _, file in ipairs(files) do
