@@ -27,3 +27,4 @@ for _, file in ipairs(files) do
 end
 
 print("\nDone! Run `reboot` or `startup` to boot MyOS.")
+fs.delete("installer.lua")
