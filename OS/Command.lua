@@ -1,0 +1,6 @@
+term.clear()
+term.setCursorPos(1,1)
+print("welcome to the command prompt")
+print("type 'back' to go to the menu")
+print("-----------------------------")
+shell.run()
