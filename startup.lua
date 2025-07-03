@@ -1,0 +1,8 @@
+term.clear()
+term.setCursorPos(1,1)
+term.print("OS Booting...")
+term.print("-------------")
+sleep(1)
+textutils.slowPrint("##########")
+sleep(1)
+shell.run(OS/.Menu)
