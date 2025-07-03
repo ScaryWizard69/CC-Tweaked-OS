@@ -10,6 +10,8 @@ local files = {
   { url = "OS/Command.lua", dest = "OS/Command.lua" },
 }
 
+fs.mkdir("OS")
+
 for _, file in ipairs(files) do
   local fullUrl = base .. file.url
   local ok, err = http.get(fullUrl)
