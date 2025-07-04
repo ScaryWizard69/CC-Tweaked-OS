@@ -1,6 +1,6 @@
 -- Secure Uninstaller for MyOS with menu fallback
 
-local CONFIRM_CODE = "d31et3Th3OS" -- Secret code
+local CONFIRM_CODE = "del" -- Secret code
 
 write("Enter uninstall code to continue: ")
 local input = read("*")
