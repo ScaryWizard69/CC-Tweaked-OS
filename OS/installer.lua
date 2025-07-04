@@ -8,6 +8,7 @@ local files = {
   { url = "OS/Menu.lua", dest = "OS/Menu.lua" },
   { url = "OS/back.lua", dest = "OS/back.lua" },
   { url = "OS/Command.lua", dest = "OS/Command.lua" },
+  { url = "OS/uninstall.lua", dest = "OS/uninstall.lua"}
 }
 
 shell.run("mkdir", "OS")
