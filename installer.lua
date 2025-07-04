@@ -9,7 +9,7 @@ local files = {
   { url = "OS/back.lua", dest = "OS/back.lua" },
   { url = "OS/Command.lua", dest = "OS/Command.lua" },
   { url = "OS/uninstall.lua", dest = "OS/uninstall.lua"},
-  { url = "OS/programs.lua", dles = "OS/programs.lua"},
+  { url = "OS/programs.lua", dest = "OS/programs.lua"},
   { url = "OS/programs/chat.lua", dest = "OS/programs/chat.lua"}
 }
 
