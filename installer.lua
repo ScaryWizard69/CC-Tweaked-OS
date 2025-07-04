@@ -14,6 +14,7 @@ local files = {
 }
 
 shell.run("mkdir", "OS")
+shell.run("mkdir", "OS/programs")
 
 for _, file in ipairs(files) do
   local fullUrl = base .. file.url
