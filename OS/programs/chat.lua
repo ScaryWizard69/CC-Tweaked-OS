@@ -44,6 +44,7 @@ parallel.waitForAny(
 
             if message == "/exit" then
                 print("Exiting chat...")
+                shell.run("OS/Menu.lua")
                 return
             end
 
