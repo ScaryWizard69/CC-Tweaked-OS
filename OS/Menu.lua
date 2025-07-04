@@ -1,6 +1,6 @@
 local menuItems = {
     { name = "Command", action = function() shell.run("OS/Command.lua") end },
-    { name = "Programs", action = function() shell.run("OS/Programs.lua") end },
+    { name = "Programs", action = function() shell.run("OS/programs.lua") end },
     { name = "Shutdown", action = function() shell.run("shutdown") end },
     { name = "Uninstall", action = function() shell.run("OS/uninstall.lua") end }
 }
