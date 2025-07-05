@@ -26,8 +26,8 @@ if not fs.exists(FileName) then
 end
 
 local File = fs.open(FileName, "r")
-local content = file.readAll()
-file.close()
+local content = File.readAll()
+File.close()
 
 local chunks = {}
 local chunkSize = 1024
