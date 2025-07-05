@@ -1,5 +1,8 @@
 local menuItems = {
-    { name = "chat", action = function() shell.run("OS/programs/chat.lua") end}
+    { name = "chat", action = function() shell.run("OS/programs/chat.lua") end},
+    { name = "sendFile", action = function() shell.run("OS/programs/sendfile.lua") end},
+    { name = "recvFile", action = function() shell.run("OS/programs/recvfile.lua") end},
+    { name = "Back", action = function() shell.run("OS/Menu.lua") end},
 }
 
 local selection = 1
