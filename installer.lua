@@ -12,7 +12,7 @@ local files = {
   { url = "OS/programs.lua", dest = "OS/programs.lua"},
   { url = "OS/programs/chat.lua", dest = "OS/programs/chat.lua"},
   { url = "OS/programs/sendfile.lua", dest = "OS/programs/sendfile.lua"},
-  { url = "OS/programs/recvfile.lua", dest = "OS/programs/recvfile.lua"}
+  { url = "OS/programs/recvfile.lua", dest = "OS/programs/recvfile.lua"},
 }
 
 shell.run("mkdir", "OS")
