@@ -22,7 +22,8 @@ local fileName = read()
 
 if not fs.exists(fileName) then
     print("File does not exist.")
-    return
+    sleep(2)
+    shell.run("OS/Menu.lua")
 end
 
 -- Look up the ID using a custom protocol (or nil for all protocols)
