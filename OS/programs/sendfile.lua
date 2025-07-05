@@ -15,19 +15,29 @@ openAllModems()
 term.clear()
 term.setCursorPos(1,1)
 print("== File Sharer ==")
-write("Enter Target ID: ")
-local Target = tonumber(read())
+write("Enter Target Label: ")
+local targetLabel = read()
 write("File to Send: ")
-local FileName = read()
+local fileName = read()
 
-if not fs.exists(FileName) then
+if not fs.exists(fileName) then
     print("File does not exist.")
     return
 end
 
-local File = fs.open(FileName, "r")
-local content = File.readAll()
-File.close()
+-- Look up the ID using a custom protocol (or nil for all protocols)
+local protocol = "fileshare"
+local targetID = rednet.lookup(protocol, targetLabel)
+
+if not targetID then
+    print("Target not found on network.")
+    return
+end
+
+-- Read file contents
+local file = fs.open(fileName, "r")
+local content = file.readAll()
+file.close()
 
 local chunks = {}
 local chunkSize = 1024
@@ -35,29 +45,29 @@ for i = 1, #content, chunkSize do
     table.insert(chunks, content:sub(i, i + chunkSize - 1))
 end
 
--- Send file metadata
-rednet.send(Target, textutils.serialize({
+-- Send metadata
+rednet.send(targetID, textutils.serialize({
     type = "file_start",
-    name = FileName,
+    name = fileName,
     total = #chunks
-}))
+}), protocol)
+sleep(0.1)
 
--- Send file chunks
+-- Send chunks
 for i, chunk in ipairs(chunks) do
-    rednet.send(Target, textutils.serialize({
+    rednet.send(targetID, textutils.serialize({
         type = "file_chunk",
         index = i,
         data = chunk
-    }))
+    }), protocol)
     sleep(0.05)
 end
 
 -- Send file end
-rednet.send(Target, textutils.serialize({
+rednet.send(targetID, textutils.serialize({
     type = "file_end",
-    name = FileName
-}))
+    name = fileName
+}), protocol)
 
 print("File sent successfully!")
-sleep(1)
 shell.run("OS/Menu.lua")
