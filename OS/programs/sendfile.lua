@@ -16,7 +16,7 @@ term.clear()
 term.setCursorPos(1,1)
 print("==File Sharer==")
 write("Enter Target ID: ")
-local Target = topnumber(read())
+local Target = tonumber(read())
 write("File To Send: ")
 local FileName = read()
 
