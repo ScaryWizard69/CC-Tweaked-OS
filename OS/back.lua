@@ -1,2 +1,2 @@
 shell.run("cd", "/")
-shell.run("Menu")
+shell.run("OS/Menu")
