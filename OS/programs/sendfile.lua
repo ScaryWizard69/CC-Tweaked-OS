@@ -59,3 +59,5 @@ rednet.send(Target, textutils.serialize({
 }))
 
 print("File sent successfully!")
+sleep(1)
+shell.run("OS/Menu.lua")
