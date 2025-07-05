@@ -31,7 +31,7 @@ local targetID = rednet.lookup(protocol, targetLabel)
 
 if not targetID then
     print("Target not found on network.")
-    return
+    shell.run("OS/Menu")
 end
 
 -- Read file contents
