@@ -14,14 +14,14 @@ openAllModems()
 
 term.clear()
 term.setCursorPos(1,1)
-print("==File Sharer==")
+print("== File Sharer ==")
 write("Enter Target ID: ")
 local Target = tonumber(read())
-write("File To Send: ")
+write("File to Send: ")
 local FileName = read()
 
 if not fs.exists(FileName) then
-    print("File Does Not Exist")
+    print("File does not exist.")
     return
 end
 
@@ -32,16 +32,30 @@ File.close()
 local chunks = {}
 local chunkSize = 1024
 for i = 1, #content, chunkSize do
-    tabel.insert(chunks, content:sub(i, i +  chunkSize - 1))
+    table.insert(chunks, content:sub(i, i + chunkSize - 1))
 end
 
-rednet.send(Target, textutils.serialize({type="file_start", name=FileName, total=#chunks}))
+-- Send file metadata
+rednet.send(Target, textutils.serialize({
+    type = "file_start",
+    name = FileName,
+    total = #chunks
+}))
 
+-- Send file chunks
 for i, chunk in ipairs(chunks) do
-  rednet.send(target, textutils.serialize({type="file_chunk", index=i, data=chunk}))
-  sleep(0.05)  -- brief pause to avoid flooding
+    rednet.send(Target, textutils.serialize({
+        type = "file_chunk",
+        index = i,
+        data = chunk
+    }))
+    sleep(0.05)
 end
 
--- Finish
-rednet.send(target, textutils.serialize({type="file_end", name=filename}))
+-- Send file end
+rednet.send(Target, textutils.serialize({
+    type = "file_end",
+    name = FileName
+}))
+
 print("File sent successfully!")
